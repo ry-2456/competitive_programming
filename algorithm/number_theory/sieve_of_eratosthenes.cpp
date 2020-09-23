@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 std::vector<int> sieve_of_eratosthenes(const int N) {
-  std::vector<bool> is_prime(N+1, true);  // is_prime[i] := whether i is priem number or not 
+  std::vector<bool> is_prime(N+1, true);  // is_prime[i] := whether i is prime number or not 
   is_prime[0] = is_prime[1] = false; // 0 and 1 is not priem number
 
   for (int i = 2; i*i <= N; ++i) {
@@ -11,7 +11,7 @@ std::vector<int> sieve_of_eratosthenes(const int N) {
     if (!is_prime[i]) continue;
 
     // set false to not prime number
-    for (int j = i*2; j <= N; j += i) {
+    for (int j = i*i; j <= N; j += i) {
       is_prime[j] = false; 
     }
   } 
