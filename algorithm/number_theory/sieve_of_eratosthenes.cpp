@@ -11,7 +11,7 @@ std::vector<int> sieve_of_eratosthenes(const int N) {
     if (!is_prime[i]) continue;
 
     // set false to not prime number
-    for (int j = i*2; j <= N; j += i) {
+    for (int j = i*i; j <= N; j += i) {
       is_prime[j] = false; 
     }
   } 
