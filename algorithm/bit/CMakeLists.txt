@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 2.8)
+project(bit CXX)
+set(CMAKE_CXX_STANDARD 11)
+add_executable(flag flag.cpp)
+add_executable(bit_mask bit_mask.cpp)
+add_executable(C_Skill_Up C_Skill_Up.cpp)
+add_executable(C_HonestOrUnkind2 C_HonestOrUnkind2.cpp)
