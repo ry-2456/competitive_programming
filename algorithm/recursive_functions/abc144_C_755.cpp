@@ -1,4 +1,4 @@
-/* bfs$B=P$b<BAu$7$F$_$h$&(B */
+/* bfs出も実装してみよう */
 #include <bits/stdc++.h>
 
 void dfs(std::string num_s, const long long& limit, int& cnt);
