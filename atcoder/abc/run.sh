@@ -7,6 +7,7 @@ do
         NUMBER=$(echo $1 | sed -e 's/^--number=//')
       elif [[ -z "$2" ]] || [[ "$2" =~ ^-+ ]]; then
         echo "'number' requires an arguments." 1>&2
+        exit 1
       else
         NUMBER="$2"
         shift
@@ -17,6 +18,7 @@ do
         LEVEL=$(echo $1 | sed -e 's/^--level=//')
       elif [[ -z "$2" ]] || [[ "$2" =~ ^-+ ]]; then
         echo "'level' requires an arguments." 1>&2
+        exit 1
       else
         LEVEL="$2"
         shift
