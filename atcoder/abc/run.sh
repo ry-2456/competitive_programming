@@ -54,3 +54,22 @@ if [[ ! -d $DATA_DIR ]]; then
   exit 1
 fi
 
+# compile cpp file
+g++ -Wall $CPP_FILE -o hoge
+
+# run and input data
+for data_file in $(ls $DATA_DIR)
+do
+  echo "=============================="
+  echo "input($data_file)"
+  echo "------------------------------"
+  cat "$DATA_DIR/$data_file"
+
+  echo "------------------------------"
+  echo "output"
+  echo "------------------------------"
+
+  ./hoge < "$DATA_DIR/$data_file"
+
+  echo
+done
