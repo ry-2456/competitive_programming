@@ -36,15 +36,19 @@ if [[ -z $LEVEL ]]; then
 fi
 
 DIR="abc${NUMBER}"
+CPP_FILE="${DIR}/${LEVEL}.cpp"
 DATA_DIR="${DIR}/data/${LEVEL}"
 
 if [[ ! -d $DIR ]]; then
   echo "'${DIR}' dir does not exists." 1>&2
   exit 1
 fi
+if [[ ! -e $CPP_FILE ]]; then
+  echo "'${CPP_FILE}' file does not exists." 1>&2
+  exit 1
+fi
 if [[ ! -d $DATA_DIR ]]; then
   echo "'${DATA_DIR}' dir does not exists." 1>&2
   exit 1
 fi
-
 
