@@ -25,3 +25,26 @@ do
   esac
   shift
 done
+
+if [[ -z $NUMBER ]]; then
+  echo "'number' must be specified. " 1>&2
+  exit 1
+fi
+if [[ -z $LEVEL ]]; then
+  echo "'level' must be specified. " 1>&2
+  exit 1
+fi
+
+DIR="abc${NUMBER}"
+DATA_DIR="${DIR}/data/${LEVEL}"
+
+if [[ ! -d $DIR ]]; then
+  echo "'${DIR}' dir does not exists." 1>&2
+  exit 1
+fi
+if [[ ! -d $DATA_DIR ]]; then
+  echo "'${DATA_DIR}' dir does not exists." 1>&2
+  exit 1
+fi
+
+
