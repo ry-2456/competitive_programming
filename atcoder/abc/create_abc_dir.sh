@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/bash
 
 
 if [ $# != 1 ]; then
@@ -25,4 +25,16 @@ fi
 mkdir -p $dir_name
 mkdir -p $dir_name/data/{a,b,c,d,e,f,g,h}
 touch $dir_name/{a,b,c,d,e,f,g,h}.cpp
+
+# write 
+for cpp_file in $(ls $dir_name | grep -E "*.cpp")
+do
+  file_dir=$dir_name/$cpp_file
+  echo "#include <bits/stdc++.h>" >> $file_dir
+  echo "" >> $file_dir
+  echo "int main() {" >> $file_dir
+  echo "" >> $file_dir
+  echo "}" >> $file_dir
+done
+
 echo created $dir_name
