@@ -24,6 +24,13 @@ do
         shift
       fi
       ;;
+    -h | --help)
+      echo "Usage: ./run.sh -n abc_contest_number -l level"
+      echo "指定したabcコンテスト番号の特定のレベルのプログラムをコンパイルして実行する"
+      echo "eg."
+      echo "$./run.sh -n 300 -l bでabc300のb.cppをコンパイルして、各bのデータを入力して実行する"
+      exit 0
+      ;;
   esac
   shift
 done
