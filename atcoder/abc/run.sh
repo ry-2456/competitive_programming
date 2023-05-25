@@ -80,3 +80,5 @@ do
 
   echo
 done
+
+rm hoge
