@@ -1,0 +1,14 @@
+Usage: ./run.sh -n abc_contest_number -l level
+指定したabcコンテスト番号の特定のレベルのプログラムをコンパイルして実行する
+eg."
+$./run.sh -n 300 -l bでabc300のb.cppをコンパイルして、各bのデータを入力して実行する
+
+DESCRIPTION
+    -n, --number
+        abc contest number
+
+    -l, --level
+        problem level
+
+    -i, --input
+        data number to input 
