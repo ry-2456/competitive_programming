@@ -24,6 +24,17 @@ do
         shift
       fi
       ;;
+    -i | --input | --input=*)
+      if [[ "$1" =~ ^--input= ]]; then
+        INPUT=$(echo $1 | sed -e 's/^--input=//')
+      elif [[ -z "$2" ]] || [[ "$2" =~ ^-+ ]]; then
+        echo "'input' requires an arguments." 1>&2
+        exit 1
+      else
+        INPUT="$2"
+        shift
+      fi
+      ;;
     -h | --help)
       echo "Usage: ./run.sh -n abc_contest_number -l level"
       echo "指定したabcコンテスト番号の特定のレベルのプログラムをコンパイルして実行する"
@@ -67,6 +78,13 @@ g++ -Wall $CPP_FILE -o hoge
 # run and input data
 for data_file in $(ls $DATA_DIR)
 do
+  # skip except input data specified by -i option
+  FILE_NUM=$(echo $data_file | sed -E "s/[^0-9]//g")
+  if [ -n $INPUT ] && [ "$INPUT" != "$FILE_NUM" ]; then
+    continue
+  fi
+
+  # run and input
   echo "=============================="
   echo "input($data_file)"
   echo "------------------------------"
