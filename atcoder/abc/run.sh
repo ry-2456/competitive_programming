@@ -71,13 +71,12 @@ fi
 
 # compile cpp file
 g++ -Wall $CPP_FILE -o hoge
-
 # run and input data
 for data_file in $(ls $DATA_DIR)
 do
   # skip except input data specified by -i option
   FILE_NUM=$(echo $data_file | sed -E "s/[^0-9]//g")
-  if [ -n $INPUT ] && [ "$INPUT" != "$FILE_NUM" ]; then
+  if [[ ! -z "$INPUT" ]] && [[ "$INPUT" != "$FILE_NUM" ]]; then
     continue
   fi
 
