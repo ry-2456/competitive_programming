@@ -70,7 +70,13 @@ if [[ ! -d $DATA_DIR ]]; then
 fi
 
 # compile cpp file
-g++ -Wall $CPP_FILE -o hoge
+result=0
+g++ -Wall $CPP_FILE -o hoge || result=$?
+if [ ! "$result" = "0" ]; then
+  echo "compile error occured."
+  exit 1
+fi
+
 # run and input data
 for data_file in $(ls $DATA_DIR)
 do
